@@ -1,0 +1,146 @@
+import 'package:flutter/material.dart';
+
+class LoginView extends StatefulWidget{
+  @override  
+  _LoginViewState createState() => _LoginViewState();
+}
+
+class _LoginViewState extends State<LoginView>{
+  @override
+  Widget build(BuildContext context){
+    return Scaffold(
+      appBar: AppBar(
+        // Here we take the value from the MyHomePage object that was created by
+        // the App.build method, and use it to set our appbar title.
+        title: const Text('Argo', style: TextStyle(
+            color: Colors.black
+            
+        )),
+        backgroundColor: Colors.white,
+      
+      ),
+      body: Stack(
+        children: <Widget> [
+          Container(
+            height: double.infinity,
+            width: double.infinity,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                   Colors.white
+                ]
+              )
+            )
+          ),
+          Container(
+            height : double.infinity,
+            child: SingleChildScrollView(
+              physics: AlwaysScrollableScrollPhysics(),
+              padding: EdgeInsets.symmetric(
+                horizontal: 40.0,
+                vertical : 120.0
+              ),
+              child:Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        'Email'
+                      ),
+                      SizedBox(height: 20.0),
+                      Container(
+                        alignment: Alignment.centerLeft,
+                        height: 50.0,
+                        child:TextFormField(
+                          validator: (value) {
+                            if (value.isEmpty) {
+                              return 'Please enter some text';
+                            }
+                            return null;
+                          },
+                          keyboardType:  TextInputType.emailAddress,
+                          style: TextStyle(
+                            color: Colors.black
+                          ),
+                          decoration: new InputDecoration(
+                             focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.black, width: 1.0),
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.grey, width: 1.0),
+                              ),
+                               border: new OutlineInputBorder(
+                                  borderRadius: const BorderRadius.all(
+                                    const Radius.circular(40.0),
+                                  ),
+                                ),
+                              hintText: 'Email',
+                              prefixIcon: Icon(
+                                 Icons.email,
+                                 color : Colors.black
+                              )
+                          ),
+                          
+                        ),
+                      ),
+                      SizedBox(height: 20.0),
+                      Container(
+                        alignment: Alignment.centerLeft,
+                        height: 50.0,
+                        child:TextField(
+                          
+                          obscureText: true,
+                          style: TextStyle(
+                            color: Colors.black
+                          ),
+                          decoration: new InputDecoration(
+                             focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.black, width: 1.0),
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.grey, width: 1.0),
+                              ),
+                              border: new OutlineInputBorder(
+                                borderRadius: const BorderRadius.all(
+                                  const Radius.circular(20.0),
+                                ),
+                              ),
+                              hintText: 'Password',
+                                prefixIcon: Icon(
+                                  Icons.lock,
+                                  color : Colors.black
+                              )
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 20.0),
+                   SizedBox(
+                        width: double.infinity, 
+                        height: 50.0,
+                        child:RaisedButton(
+                          
+                          shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20.0),
+                          side: BorderSide(color: Colors.black)),
+                          onPressed: () {},
+                          child: const Text('Ingresar', style: TextStyle(fontSize: 16, color: Colors.white)),
+                          color : Colors.black,
+                        )
+                      )
+                    ],
+                  )
+                ]
+              )
+            ),
+          )
+        ],
+
+      )
+    );
+  }
+}
