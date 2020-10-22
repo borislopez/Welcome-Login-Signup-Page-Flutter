@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:Argo/views/home/HomeView.dart';
+import 'package:Argo/views/coversations/ConversationsView.dart';
 import 'package:Argo/components/RoundedButton.dart';
 import 'package:Argo/components/RoundedTextMultiLineField.dart';
-
+import 'package:Argo/utils/constants.dart';
 
 
 class Body extends StatelessWidget {
@@ -37,11 +37,11 @@ class Body extends StatelessWidget {
                                 children: <Widget>[
 
                                   RoundedTextMultiLineField(
-                                      hintText: "Descripcion",
+                                      hintText: "Desipcion",
                                       onChanged: (value) {},
                                   ),
                                   RoundedTextMultiLineField(
-                                    hintText: "Descripcion",
+                                    hintText: "Desc ripcion",
                                     onChanged: (value) {},
                                   ),
                                   RoundedTextMultiLineField(
@@ -54,9 +54,22 @@ class Body extends StatelessWidget {
                                   ),
 
                                   RoundedButton(
-                                    text: "Ingresar",
+                                    text: "Guardar",
+                                    color : PrimaryColorArgo,
                                     press: () {
-
+                                         if (keyForm.currentState.validate()) {
+                                            // If the form is valid, display a Snackbar.
+                                             // Scaffold.of(context)
+                                               // .showSnackBar(SnackBar(content: Text('Processing Data')));
+                                                Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                      builder: (context) {
+                                                        return ConversationsView();
+                                                      },
+                                                    ),
+                                              );
+                                          }
                                     },
                                   )
                                 ]
