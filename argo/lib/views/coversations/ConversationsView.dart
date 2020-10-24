@@ -1,9 +1,16 @@
+import 'dart:ui';
 import 'package:flutter/material.dart';
+
+import 'package:Argo/utils/constants.dart';
 import 'package:Argo/views/coversations/components/Body.dart';
 import 'package:Argo/components/AppBarArgo.dart';
-import 'package:Argo/components/AgendaList.dart';
+import 'package:Argo/components/DiaryList.dart';
 import 'package:Argo/components/ConversationsList.dart';
+import 'package:Argo/components/RecordList.dart';
+import 'package:Argo/components/SupportList.dart';
 import 'package:Argo/components/BottomNavigationBarArgo.dart';
+import 'package:Argo/components/RoundedButton.dart';
+
 /// This is the stateful widget that the main application instantiates.
 ///
 ///
@@ -12,18 +19,21 @@ import 'package:Argo/components/BottomNavigationBarArgo.dart';
 ///
 
 class ConversationsView extends StatelessWidget {
-  static const String _title = 'Flutter Code Sample';
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: _title,
-      home: ConversationViewWidget(),
+    return Scaffold(
+      appBar: AppBarArgo(),
+      body: ConversationViewWidget(context:context),
     );
   }
 }
 class ConversationViewWidget extends StatefulWidget {
-  ConversationViewWidget({Key key}) : super(key: key);
+  final BuildContext context;
+  ConversationViewWidget({
+    Key key,
+    this.context
+  }) : super(key: key);
 
   @override
   _ConversationViewState createState() => _ConversationViewState();
@@ -34,24 +44,57 @@ class _ConversationViewState extends State<ConversationViewWidget> {
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
   TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  static const ConversationsList convList =  ConversationsList();
+
   static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      ' Conversations',
-      style: optionStyle,
+    Center(
+        child: ConversationsList()
     ),
-    Text(
-      'Agenda',
-      style: optionStyle,
+    Center(
+       child: DiaryList()
     ),
-    Text(
-      'Historial',
-      style: optionStyle,
+    Center(
+      child: RecordList()
     ),
-    Text(
-      'Soporte',
-      style: optionStyle,
+    Center(
+        child: SupportList()
+    ),
+    Center(
+        child: Text('Settings')
     )
   ];
+
+  Future<void> _showMyDialog() async {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false, // user must tap button!
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('AlertDialog Title'),
+          content: SingleChildScrollView(
+            child: ListBody(
+              children: <Widget>[
+                Text('This is a demo alert dialog.'),
+                Text('Would you like to approve of this message?'),
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: Text('Approve'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  void _showDialog() {
+
+  }
 
   void _onItemTapped(int index) {
     setState(() {
@@ -62,9 +105,7 @@ class _ConversationViewState extends State<ConversationViewWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('BottomNavigationBar Sample'),
-      ),
+
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
@@ -79,17 +120,22 @@ class _ConversationViewState extends State<ConversationViewWidget> {
             label: 'Agenda',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.school),
+            icon: Icon(Icons.business),
             label: 'Historial',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.school),
+            icon: Icon(Icons.business),
+            label: 'Soporte',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
             label: 'Soporte',
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
+        selectedItemColor: GreenColorArgo,
         onTap: _onItemTapped,
+        unselectedItemColor: PrimaryColorArgo,
       ),
     );
   }

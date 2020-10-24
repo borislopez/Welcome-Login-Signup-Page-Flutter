@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:Argo/utils/constants.dart';
 import 'package:Argo/components/RoundedButton.dart';
-import 'package:Argo/components/AgendaList.dart';
+import 'package:Argo/components/DiaryList.dart';
 
 class Body extends StatelessWidget {
 
@@ -11,7 +11,7 @@ class Body extends StatelessWidget {
       return
           Stack(
           children:<Widget> [
-            AgendaList()
+            DiaryList()
           ]
     );
 

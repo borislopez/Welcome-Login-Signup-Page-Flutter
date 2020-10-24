@@ -61,11 +61,11 @@ class Body extends StatelessWidget {
                                             // If the form is valid, display a Snackbar.
                                              // Scaffold.of(context)
                                                // .showSnackBar(SnackBar(content: Text('Processing Data')));
-                                                Navigator.push(
+                                              Navigator.push(
                                                     context,
                                                     MaterialPageRoute(
                                                       builder: (context) {
-                                                        return ;//ConversationsView();
+                                                        return ConversationsView();
                                                       },
                                                     ),
                                               );
