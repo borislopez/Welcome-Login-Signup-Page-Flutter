@@ -2,10 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:Argo/utils/constants.dart';
 
-
-class ConversationsList extends StatelessWidget {
-
-
+class AgendaList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
@@ -14,16 +11,16 @@ class ConversationsList extends StatelessWidget {
       padding: const EdgeInsets.only( top: 90.0),
       children: <Widget>[
         ListTile(
-          leading: Icon(Icons.wb_sunny),
-          title: Text('Su f dn'),
+         // leading: Icon(Icons.wb_sunny),
+          title: Text('Agenda '),
         ),
         ListTile(
-          leading: Icon(Icons.brightness_3),
-          title: Text('Moon'),
+         // leading: Icon(Icons.brightness_3),
+          title: Text('Agenda '),
         ),
         ListTile(
-          leading: Icon(Icons.star),
-          title: Text('Star'),
+         // leading: Icon(Icons.star),
+          title: Text('Agenda'),
         ),
       ],
     );
