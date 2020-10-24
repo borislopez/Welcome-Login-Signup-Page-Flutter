@@ -25,7 +25,7 @@ class SupportList extends StatelessWidget {
             ) ,
           child: ListTile(
             //leading: Icon(icons[index]),
-            title: Text(titles[index]),
+            title: Text( titles[index]),
             subtitle: Text(subtitles[index]),
           ),
         );

@@ -27,8 +27,8 @@ class DiaryList extends StatelessWidget {
           child: ListTile(
 
             title: Text(titles[index]),
-            subtitle: Text(subtitles[index]),
-
+            subtitle: Text(subtitles[index] + "\n" + hours[index]),
+            isThreeLine: true,
           ),
         );
       },

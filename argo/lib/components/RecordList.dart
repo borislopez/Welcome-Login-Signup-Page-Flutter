@@ -15,9 +15,27 @@ class RecordList extends StatelessWidget {
     final titles = [
       'Manuel Elias duarte',
       'Marco Vinicio Perez',
+      'Mario Smith',
+      'Manuel Elias duarte',
+      'Marco Vinicio Perez',
+      'Mario Smith',
+      'Manuel Elias duarte',
+      'Marco Vinicio Perez',
+      'Mario Smith',
+      'Manuel Elias duarte',
+      'Marco Vinicio Perez',
       'Mario Smith'
     ];
     final subtitles = [
+      'Matematica, Tecnologia, Moda',
+      'Matematica, Tecnologia, Moda',
+      'Matematica, Tecnologia, Moda',
+      'Matematica, Tecnologia, Moda',
+      'Matematica, Tecnologia, Moda',
+      'Matematica, Tecnologia, Moda',
+      'Matematica, Tecnologia, Moda',
+      'Matematica, Tecnologia, Moda',
+      'Matematica, Tecnologia, Moda',
       'Matematica, Tecnologia, Moda',
       'Matematica, Tecnologia, Moda',
       'Matematica, Tecnologia, Moda'
@@ -25,8 +43,20 @@ class RecordList extends StatelessWidget {
     final images = [
       'assets/images/fondo.png',
       'assets/images/fondo.png',
+      'assets/images/fondo.png',
+      'assets/images/fondo.png',
+      'assets/images/fondo.png',
+      'assets/images/fondo.png',
+      'assets/images/fondo.png',
+      'assets/images/fondo.png',
+      'assets/images/fondo.png',
+      'assets/images/fondo.png',
+      'assets/images/fondo.png',
       'assets/images/fondo.png'
     ];
+
+    final hours = ['7:00 am - 8:00 am', '10:00 am - 11:00 am', '5:00 pm - 6:00 pm', '7:00 am - 8:00 am', '10:00 am - 11:00 am', '5:00 pm - 6:00 pm', '7:00 am - 8:00 am', '10:00 am - 11:00 am', '5:00 pm - 6:00 pm', '7:00 am - 8:00 am', '10:00 am - 11:00 am', '5:00 pm - 6:00 pm'];
+
 
     return ListView.builder(
       itemCount: titles.length,
@@ -41,7 +71,7 @@ class RecordList extends StatelessWidget {
               backgroundImage: AssetImage(images[index]),
             ),
             title: Text(titles[index]),
-            subtitle: Text(subtitles[index]),
+            subtitle: Text(hours[index]),
           ),
         );
       },
